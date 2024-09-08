@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <ul class="box">
-      <li v-for="(item,index) in data" :key="index">{{ item.name }}</li>
-    </ul> 
-    <div class="loading-wrapper" v-show="data.length === 0">
-      <Loading />
+    <div class="list-wrapper" v-loading="loading">
+      <ul>
+        <li v-for="(item, index) in data" :key="index">{{ item.name }}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -19,7 +18,13 @@ export default {
   },
   data() {
     return {
-      data: []
+      data: [],
+      title: 'Loading...'
+    }
+  },
+  computed: {
+    loading() {
+      return !this.data.length
     }
   },
   mounted() {
@@ -46,22 +51,15 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  .box {
-    width: 600px;
-    height: 500px;
-    li {
-      list-style: none;
-    }
-  }
+  .list-wrapper {
+    .ul {
+      width: 600px;
+      height: 500px;
 
-  .loading-wrapper {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    height: 100vh;
-    transform: translateY(-50%);
-    background-color: #5e5656;
-    opacity: 0.6;
+      li {
+        list-style: none;
+      }
+    }
   }
 }
 </style>

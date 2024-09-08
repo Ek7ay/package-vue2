@@ -1,37 +1,40 @@
 <template>
-    <div class="loading">
-        <img src="../../assets/apha-loding——2.gif" width="70" height="70">
-        <p class="title">{{ title }}</p>
+    <div class="loading-wrapper">
+        <div class="loading-content">
+            <img src="../../assets/apha-loding——2.gif" width="50" height="50">
+            <p class="title">{{ title }}</p>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        title: {
-            type: String,
-            default: '正在加载中...',
-        },
-    },
     data() {
         return {
-
+            title: '页面加载中...'
         }
     },
-    mounted() {
-        console.log('This is page loading');
-    },
-
 }
 </script>
 
 <style lang="scss" scoped>
-.loading {
+.loading-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    height: 100vh;
+    transform: translateY(-50%);
+    background-color: #5e5656;
+    opacity: 0.6;
+}
+
+.loading-content {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
     .title {
         font-size: 20px;
         line-height: 20px;
