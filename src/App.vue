@@ -3,8 +3,8 @@
     <ul class="box">
       <li v-for="(item,index) in data" :key="index">{{ item.name }}</li>
     </ul> 
-    <div class="loading-wrapper">
-      <Loading v-show="data.length === 0"></Loading>
+    <div class="loading-wrapper" v-show="data.length === 0">
+      <Loading />
     </div>
   </div>
 </template>
@@ -58,7 +58,10 @@ export default {
     width: 100%;
     position: absolute;
     top: 50%;
+    height: 100vh;
     transform: translateY(-50%);
+    background-color: #5e5656;
+    opacity: 0.6;
   }
 }
 </style>
