@@ -9,6 +9,7 @@
         "src/*"
       ]
     },
+    "jsx":"preserve", // 配置tsx支持，解决模板提醒
     "lib": [
       "esnext",
       "dom",
